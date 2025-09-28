@@ -1,0 +1,165 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Sarah Ali</title>
+ 
+
+  <style>
+    :root{--accent:#0b7285;--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; margin:0; background:linear-gradient(180deg,#071022 0%, #07162a 100%); color:#e6eef6}
+    .container{max-width:980px;margin:32px auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center}
+    .avatar-img {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%; /* يخليها دائرية */
+  object-fit: cover;  /* يخلي الصورة تنقص بشكل مرتب داخل الدائرة */
+  border: 3px solid var(--accent); /* خط خفيف حول الصورة */
+   #modalImages {
+    display: flex;           /* يجعل الصور في صف واحد */
+  gap: 10px;               /* مسافة بين الصور */
+  justify-content: center;
+}
+
+#modalImages img {
+  display: flex;           /* يجعل الصور في صف واحد */
+  gap: 10px;               /* مسافة بين الصور */
+  justify-content: center;
+}
+}
+    h1{margin:0;font-size:22px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    .card{background:rgba(255,255,255,0.03);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);margin-bottom:20px}
+    .projects{display:grid;gap:12px}
+    .proj{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+    .proj img{width:88px;height:64px;object-fit:cover;border-radius:8px}
+    .proj h3{margin:0;font-size:16px}
+    .proj p{margin:6px 0 0;color:var(--muted);font-size:14px}
+    .contact{display:flex;flex-direction:column;gap:8px}
+    a.btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
+    footer{margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
+    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);align-items:center;justify-content:center;overflow:auto;padding:20px}
+    .modal-content{background:#0b1220;padding:24px;border-radius:12px;max-width:900px;width:100%;color:#e6eef6;position:relative}
+    .close{position:absolute;top:12px;right:16px;font-size:22px;cursor:pointer;color:var(--accent)}
+    .modal img{max-width:100%;border-radius:8px;margin-bottom:12px}
+    .modal-description{margin-bottom:12px;line-height:1.5;color:#cfd8e6}
+    .download-btn{display:inline-block;padding:8px 12px;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+  <img src="mine1.png" alt="Sarah Ali" class="avatar-img">
+  <div>
+    <h1>Sarah — Portfolio</h1>
+    <p class="lead">Medical Laboratory Technologist | Bioinformatics Software Developer</p>
+  </div>
+</header>
+
+    <main>
+      <section id="My projects" class="card">
+        <h2>Projects</h2>
+        <div class=" My projects">
+          <!-- Projects with download links first -->
+          <article class="proj" onclick="openProject('Genome Alignment Tool',['primer.jpg'],'this software creates the optimal primers for any gene based on multiple factors like target gene length, GC content, and also displays the quality of the designed primers. It evaluates melting temperature (Tm), potential self-dimers and cross-dimers, hairpin formation, and specificity, ensuring the primers are efficient, stable, and suitable for reliable PCR or other molecular biology experiments.',' https://drive.google.com/file/d/1cWNTyYurt-Sf73VGpM-g6kw6yTg9gYmT/view?usp=drive_link')">
+            <img src="tool.png" alt="Genome Alignment Tool"style="width:50px;height:50px;">
+            <div><h3>Genome Alignment Tool</h3><p>Click for detailed project page</p></div>
+          </article>
+          <article class="proj" onclick="openProject('Bio Fetus Predictor',['fetal2.JPG','fatal.JPG'],'This is a bioinformatics tool designed to assess fetal health by analyzing maternal biomarkers. The software integrates multiple data points, including inflammatory markers (IL-6, IL-1β, TNF-alpha, CRP), metabolic indicators (lactic acid, glucose, amino acids), and environmental exposure compounds (BPA, phthalates), to predict potential risks and the overall condition of the fetus.','https://drive.google.com/file/d/12aV35TwEafWx1sVC7oeJVJWuJyEJB3tv/view?usp=drive_link')">
+            <img src="fetus.png" alt="Bio Fetus Predictor" style="width:50px;height:50px;">
+            <div><h3>Bio Fetus Predictor</h3><p>Click for detailed project page</p></div>
+          </article>
+          <article class="proj" onclick="openProject('Primer Design Software',['primer.jpg'],'this software creates the optimal primers for any gene based on multiple factors like target gene length, GC content, and also displays the quality of the designed primers. It evaluates melting temperature (Tm), potential self-dimers and cross-dimers, hairpin formation, and specificity, ensuring the primers are efficient, stable, and suitable for reliable PCR or other molecular biology experiments.',' https://drive.google.com/file/d/1cWNTyYurt-Sf73VGpM-g6kw6yTg9gYmT/view?usp=drive_link')">
+            <img src="primer.png" alt="Primer Design Software" style="width:50px;height:50px;">
+            <div><h3>Primer Design Software</h3><p>Click for detailed project page</p></div>
+          </article>
+          <article class="proj" onclick="openProject('Protein network analyzer',['proteinnetwork.jpg'],'Protein Network Analyzer is a Python tool that visualizes and analyzes protein–protein interactions (PPIs). Users can input protein names, and the program retrieves interaction data from the STRING database. It builds a customizable network, highlights key proteins, and offers multiple layouts (spring, circular, shell). The tool provides basic network analysis, including the most connected proteins, top interactions, and score statistics. Results can be exported as PNG images, CSV files, or text reports, making it a lightweight alternative to Cytoscape for exploring protein networks.','https://drive.google.com/yourlink_protein')">
+            <img src="protein.png" alt="Protein Network Analyzer" style="width: 50px;height: 50px;">
+            <div><h3>Protein Network Analyzer</h3><p>Click for detailed project page</p></div>
+          </article>
+
+          <!-- Remaining projects -->
+          <article class="proj" onclick="openProject('GeneData Analyzer',['genedata1.png','genedata2.png'],'GeneData Analyzer is a bioinformatics tool for processing and analyzing genetic data, mutation detection, sequence alignment, and visualization.','https://drive.google.com/yourlink_genedata')">
+            <img src="data.png" alt="GeneData Analyzer" style="width: 50px;height: 50px;">
+            <div><h3>GeneData Analyzer</h3><p>Click for detailed project page</p></div>
+          </article>
+          <article class="proj" onclick="openProject('StaphBot',['staphbot1.png','staphbot2.png'],'StaphBot simulates virtual Staphylococcus aureus responses under different conditions including antibiotics and nutrient deprivation.','https://drive.google.com/yourlink_staphbot')">
+            <img src="staph.png" alt="StaphBot" style="width:50px;height:50px;">
+
+            <div><h3>StaphBot</h3><p>Click for detailed project page</p></div>
+          </article>
+          <article class="proj" onclick="openProject('Ligand-Protein Interaction Simulator',['ligand1.png','ligand2.png'],'Simulates and visualizes ligand-protein interactions, similar to GROMACS, allowing molecular docking and energy analysis.','https://drive.google.com/yourlink_ligand')">
+            <img src="prolig.png" alt="Ligand-Protein Interaction Simulator"style="width: 50px;height: 50px;">
+            <div><h3>Ligand-Protein Interaction Simulator</h3><p>Click for detailed project page</p></div>
+          </article>
+          <article class="proj" onclick="openProject('Interactive Antibiogram Tool',['antibiogram1.png','antibiogram2.png'],'Python-based tool to visualize bacteria-antibiotic resistance patterns with dynamic data integration and color-coded grids.','https://drive.google.com/yourlink_antibiogram')">
+            <img src="bac.png" alt="Interactive Antibiogram Tool" style="width: 50px;height: 50px;">
+            <div><h3>Interactive Antibiogram Tool</h3><p>Click for detailed project page</p></div>
+          </article>
+          <article class="proj" onclick="openProject('Antimicrobial Resistance Prediction Software (AMR_SCAN)',['amrscan1.png','amrscan2.png'],'Predicts antimicrobial resistance from genomic data, providing interactive analysis and visualization.','https://drive.google.com/yourlink_amrscan')">
+            <img src="ab.png" alt="AMR_SCAN" style="width: 50px;height: 50px;">
+            <div><h3>AMR_SCAN</h3><p>Click for detailed project page</p></div>
+          </article>
+          <article class="proj" onclick="openProject('Lingo Gene',['lingo1.png','lingo2.png'],'Lingo Gene detects and visualizes genetic mutations with an interactive interface for data entry, analysis, and visualization.','https://drive.google.com/yourlink_lingo')">
+            <img src="lingo.png" alt="Lingo Gene" style="width: 50px;height: 50px;">
+            <div><h3>Lingo Gene</h3><p>Click for detailed project page</p></div>
+          </article>
+        </div>
+      </section>
+     <div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <div id="modalImages"></div>
+    <p id="modalDesc" class="modal-description"></p>
+    <a id="modalDownload" href="#" target="_blank" class="download-btn">Download / View Project</a>
+  </div>
+</div>
+
+  <!-- باقي الصفحة -->
+  <footer>
+    <p>© Sarah Portfolio</p>
+  </footer>
+</body>
+
+      <section id="contact" class="card"> <section id="contact" class="card">
+        <h2>Contact</h2>
+        <p>For more information please Email me at: <a href="mailto:alsayedsarah01@gmail.com" class="btn">alsayedsarah01@gmail.com</a></p>
+      </section>
+    </main>
+  </div>
+  <script>
+  function openProject(title, images, desc, link) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDesc").innerText = desc;
+    document.getElementById("modalDownload").href = link;
+
+    const imgContainer = document.getElementById("modalImages");
+    imgContainer.innerHTML = "";
+    images.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = title;
+      imgContainer.appendChild(img);
+    });
+
+    document.getElementById("projectModal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("projectModal").style.display = "none";
+  }
+  // إغلاق الـ Modal عند الضغط على أي مكان مظلم
+window.onclick = function(event) {
+  const modal = document.getElementById("projectModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+
+</script>
+
+</body>
+</html>
